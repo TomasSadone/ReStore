@@ -37,7 +37,7 @@ function Clientes() {
   const fetchData = async () => {
     const clientes = await getClientes();
     const filteredClients = clientes.filter(
-      (client) => client._id !== '649a1713b5f91733f2cbf8ed'
+      (client) => client._id !== '64a7028c7c022590683fa933'
     );
     setClientes(filteredClients);
   };

@@ -128,7 +128,7 @@ export const Navbar = () => {
                 width='35'
                 height='35'
                 alt={session.user.name}
-                className='rounded-full'
+                className='rounded-full object-cover'
               />
             </Link>
           ) : null}
@@ -148,7 +148,7 @@ export const Navbar = () => {
                 width='35'
                 height='35'
                 alt={user.nombre}
-                className='rounded-full h-full'
+                className='rounded-full object-cover h-full'
               />
             </Link>
           ) : null}
