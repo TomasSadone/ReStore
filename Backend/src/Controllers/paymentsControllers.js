@@ -2,7 +2,7 @@ const Stripe = require('stripe');
 const stripe = new Stripe(
   'sk_test_51NNLpXJ1lb1YFkHpt7cNexUW59vJoBx40Sta98qZ2Bqa8bRzrTaU1gjsNAWMrpYseNMP4u3KRJZxMbjBXT9LtuJC00e9OgY4Hm'
 );
-const DOMAIN = 'https://re-store-six.vercel.app/cart/checkout/order';
+const DOMAIN = 'https://re-store-ts.vercel.app/cart/checkout/order';
 
 const createSession = async (req, res) => {
   try {
