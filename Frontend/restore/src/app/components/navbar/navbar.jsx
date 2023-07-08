@@ -46,7 +46,7 @@ export const Navbar = () => {
       if (cookieValue) {
         try {
           const response = await axios.get(
-            `https://re-store.onrender.com/users/${cookieValue}`
+            `https://restore-api.onrender.com/users/${cookieValue}`
           );
           const { data } = response;
           setUser(data);

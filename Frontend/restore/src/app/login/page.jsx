@@ -13,7 +13,7 @@ import Boton from '../components/Button/Button';
 
 function Login() {
   const router = useRouter();
-  const URL = 'https://re-store.onrender.com/users';
+  const URL = 'https://restore-api.onrender.com/users';
   // ----------------------------------------------------------------Hooks------------------------------------------------------------------------------
   useEffect(() => {
     const setProv = async () => {
@@ -49,7 +49,7 @@ function Login() {
     try {
       if (user.email && user.email) {
         const { data } = await axios.get(
-          `https://re-store.onrender.com/users/${user.email}/email`
+          `https://restore-api.onrender.com/users/${user.email}/email`
         );
         if (data.error) {
           error.email = 'Usuario no existe';
@@ -116,7 +116,7 @@ function Login() {
       const expirationDate = new Date();
       expirationDate.setMonth(expirationDate.getMonth() + 1);
       const { data } = await axios.get(
-        `https://re-store.onrender.com/users/${user.email}/email`
+        `https://restore-api.onrender.com/users/${user.email}/email`
       );
       if (data._id == '649a1713b5f91733f2cbf8ed') {
         document.cookie =

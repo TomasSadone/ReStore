@@ -54,7 +54,7 @@ export function DetailId({ param }) {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `https://re-store.onrender.com/categories/technology/Detail/${param}`
+        `https://restore-api.onrender.com/categories/technology/Detail/${param}`
       );
       setPost(response.data);
     };
@@ -64,22 +64,24 @@ export function DetailId({ param }) {
   useEffect(() => {
     const fetch = async () => {
       if (post.result.length) {
-
-        const subcategory = Object.keys(post.result[0].subcategoria)[0]
+        const subcategory = Object.keys(post.result[0].subcategoria)[0];
         const response = await axios.get(
-          `https://re-store.onrender.com/categories/technology/categoria/${subcategory}`
-          );
-          setOfertas(response.data);
-        }
+          `https://restore-api.onrender.com/categories/technology/categoria/${subcategory}`
+        );
+        setOfertas(response.data);
+      }
     };
     fetch();
   }, [post.result]);
 
-
-  console.log(post)
-  console.log(ofertas)
-   const filteredData = post.result.length && ofertas.result.filter(product => product.Disabled !== true && product._id !== post.result[0]._id)
-
+  console.log(post);
+  console.log(ofertas);
+  const filteredData =
+    post.result.length &&
+    ofertas.result.filter(
+      (product) =>
+        product.Disabled !== true && product._id !== post.result[0]._id
+    );
 
   useEffect(() => {
     if (!addedToCart) {

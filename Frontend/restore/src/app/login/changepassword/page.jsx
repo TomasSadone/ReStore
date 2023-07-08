@@ -1,23 +1,23 @@
-"use client";
-import React from "react";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import "./change.css";
-import Link from "next/link";
+'use client';
+import React from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import './change.css';
+import Link from 'next/link';
 
 function ChangePassword() {
-  const URL = "https://re-store.onrender.com/users";
+  const URL = 'https://restore-api.onrender.com/users';
 
   const [flag, setFlag] = useState(false);
   const [user, setUser] = useState({
-    email: "",
-    password: "",
-    confirm_password: "",
+    email: '',
+    password: '',
+    confirm_password: '',
   });
   const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-    confirm_password: "",
+    email: '',
+    password: '',
+    confirm_password: '',
   });
 
   // ----------------------------------------------------------------Validates------------------------------------------------------------------------------
@@ -28,16 +28,16 @@ function ChangePassword() {
     const error = {};
 
     if (!emailRegex.test(user.email)) {
-      error.email = "Debes ingresar un email";
+      error.email = 'Debes ingresar un email';
     }
     if (user.password) {
       if (!passwordRegex.test(user.password)) {
         error.password =
-          "Debes crear una contraseña con una mayuscula, un numero y un caracter especial";
+          'Debes crear una contraseña con una mayuscula, un numero y un caracter especial';
       }
     }
     if (user.password !== user.confirm_password) {
-      error.confirm_password = "Las contraseñas no son las mismas";
+      error.confirm_password = 'Las contraseñas no son las mismas';
     }
     return error;
   }
@@ -65,7 +65,7 @@ function ChangePassword() {
         setFlag(false); // Cambia flag a false si ya se creó un usuario anteriormente
       } else {
         axios
-          .put("https://re-store.onrender.com/users/changePassword", {
+          .put('https://restore-api.onrender.com/users/changePassword', {
             email: user.email,
             newPassword: user.password,
           })
@@ -91,11 +91,11 @@ function ChangePassword() {
     };
 
     // Aplicar los nuevos estilos al body
-    document.body.style.display = "flex";
-    document.body.style.justifyContent = "center";
-    document.body.style.minHeight = "100vh";
-    document.body.style.background = "#0f172a";
-    document.body.style.alignItems = "center";
+    document.body.style.display = 'flex';
+    document.body.style.justifyContent = 'center';
+    document.body.style.minHeight = '100vh';
+    document.body.style.background = '#0f172a';
+    document.body.style.alignItems = 'center';
 
     // Restaurar los estilos originales al desmontar el componente
     return () => {
@@ -109,54 +109,56 @@ function ChangePassword() {
 
   return (
     <div>
-      <div className="sign-body">
-        <div className="container_sign">
-          <form onSubmit={handleSubmit} className="form">
+      <div className='sign-body'>
+        <div className='container_sign'>
+          <form onSubmit={handleSubmit} className='form'>
             <h2>Contraseña Perdida?</h2>
-            <div className="inputBox">
+            <div className='inputBox'>
               <input
-                type="email"
+                type='email'
                 required
-                name="email"
+                name='email'
                 value={user.email}
                 onChange={handleInputs}
               ></input>
 
-              <span className="sign-span">Email</span>
-              <p className="erorrp">{errors.email}</p>
+              <span className='sign-span'>Email</span>
+              <p className='erorrp'>{errors.email}</p>
             </div>
-            <div className="inputBox">
+            <div className='inputBox'>
               <input
-                type="password"
+                type='password'
                 required
-                name="password"
+                name='password'
                 value={user.password}
                 onChange={handleInputs}
               ></input>
 
-              <span className="sign-span">Nueva contraseña</span>
-              <p className="erorrp">{errors.password}</p>
+              <span className='sign-span'>Nueva contraseña</span>
+              <p className='erorrp'>{errors.password}</p>
             </div>
-            <div className="inputBox">
+            <div className='inputBox'>
               <input
-                type="password"
+                type='password'
                 required
-                name="confirm_password"
+                name='confirm_password'
                 value={user.confirm_password}
                 onChange={handleInputs}
               ></input>
 
-              <span className="sign-span">Confirmar Contraseña</span>
-              <p className="erorrp">{errors.confirm_password}</p>
+              <span className='sign-span'>Confirmar Contraseña</span>
+              <p className='erorrp'>{errors.confirm_password}</p>
             </div>
-            <div className="inputBox">
-              <input type="submit" value="Cambiar contraseña"></input>
+            <div className='inputBox'>
+              <input type='submit' value='Cambiar contraseña'></input>
             </div>
-            <p id="userCreatedMessage">{flag ? "Contraseña modificada" : null}</p>
+            <p id='userCreatedMessage'>
+              {flag ? 'Contraseña modificada' : null}
+            </p>
             <p>
-              Ya sos miembro?{" "}
-              <Link href={"/login"}>
-                <p id="asd" className="login">
+              Ya sos miembro?{' '}
+              <Link href={'/login'}>
+                <p id='asd' className='login'>
                   Log in
                 </p>
               </Link>

@@ -1,6 +1,6 @@
-"use client";
-import React from "react";
-import "../dash.css";
+'use client';
+import React from 'react';
+import '../dash.css';
 import {
   Space,
   Typography,
@@ -11,11 +11,11 @@ import {
   Tag,
   Button,
   Input,
-} from "antd";
-import { useRouter } from "next/navigation";
-import axios from "axios";
-import { useEffect, useState } from "react";
-import Swal from "sweetalert2";
+} from 'antd';
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 function Clientes() {
   const router = useRouter();
@@ -28,37 +28,39 @@ function Clientes() {
   const [clientes, setClientes] = useState([]);
   const [loading, setLoading] = useState(false);
   const [flag, setFlag] = useState(false);
-  const [searchText, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState('');
   const getClientes = async () => {
-    const { data } = await axios.get("https://re-store.onrender.com/users");
+    const { data } = await axios.get('https://restore-api.onrender.com/users');
     return data;
   };
 
   const fetchData = async () => {
     const clientes = await getClientes();
-    const filteredClients = clientes.filter((client) => client._id !== "649a1713b5f91733f2cbf8ed");
+    const filteredClients = clientes.filter(
+      (client) => client._id !== '649a1713b5f91733f2cbf8ed'
+    );
     setClientes(filteredClients);
   };
 
   useEffect(() => {
-    fetchData()
-  },[])
+    fetchData();
+  }, []);
 
   const handleBan = async (clienteId) => {
     try {
-      setLoading(true)
+      setLoading(true);
       const response = await axios.put(
-        "https://re-store.onrender.com/users/ban/user",
+        'https://restore-api.onrender.com/users/ban/user',
         {
           userId: clienteId,
         }
       );
-      console.log("Usuario baneado:", response.data);
+      console.log('Usuario baneado:', response.data);
     } catch (error) {
-      console.error("Error al banear al usuario:", error);
-    }finally {
-      setLoading(false)
-      fetchData()
+      console.error('Error al banear al usuario:', error);
+    } finally {
+      setLoading(false);
+      fetchData();
     }
   };
 
@@ -71,48 +73,46 @@ function Clientes() {
 
     const columns = [
       {
-        title: "Foto",
-        dataIndex: "imagenDePerfil",
+        title: 'Foto',
+        dataIndex: 'imagenDePerfil',
         render: (link) => {
           return <Avatar src={link} />;
         },
       },
       {
-        title: "Email",
-        dataIndex: "email",
+        title: 'Email',
+        dataIndex: 'email',
         filteredValue: [searchText],
-        onFilter: (text,record) => {
-          return (
-            record.email?.toLowerCase().includes(text.toLowerCase())
-          )
-        }
+        onFilter: (text, record) => {
+          return record.email?.toLowerCase().includes(text.toLowerCase());
+        },
       },
       {
-        title: "Nombre",
-        dataIndex: "nombre",
+        title: 'Nombre',
+        dataIndex: 'nombre',
       },
       {
-        title: "Apellido",
-        dataIndex: "apellido",
+        title: 'Apellido',
+        dataIndex: 'apellido',
       },
       {
-        title: "Género",
-        dataIndex: "genero",
+        title: 'Género',
+        dataIndex: 'genero',
         render: (genero) => {
           let color, backgroundColor;
           if (genero) {
             switch (genero.toLowerCase()) {
-              case "masculino":
-                color = "grey";
-                backgroundColor = "blue";
+              case 'masculino':
+                color = 'grey';
+                backgroundColor = 'blue';
                 break;
-              case "femenino":
-                color = "grey";
-                backgroundColor = "pink";
+              case 'femenino':
+                color = 'grey';
+                backgroundColor = 'pink';
                 break;
               default:
-                color = "white";
-                backgroundColor = "black";
+                color = 'white';
+                backgroundColor = 'black';
                 break;
             }
           }
@@ -124,39 +124,37 @@ function Clientes() {
         },
       },
       {
-        title: "ID",
-        dataIndex: "_id",
+        title: 'ID',
+        dataIndex: '_id',
       },
       {
-        title: "Acciones",
+        title: 'Acciones',
         render: (text, cliente) => (
           <Space>
             <Button onClick={() => handleBan(cliente._id)}>
-              {!cliente.ban ? "Banear" : "Desbanear"}{" "}
+              {!cliente.ban ? 'Banear' : 'Desbanear'}{' '}
             </Button>
           </Space>
         ),
       },
       {
-        title: "Ban",
-        dataIndex: "ban",
+        title: 'Ban',
+        dataIndex: 'ban',
         render: (ban) => (
-          <span style={{ color: ban ? "red" : "green", fontWeight: "bold" }}>
-            {ban ? "true" : "false"}
+          <span style={{ color: ban ? 'red' : 'green', fontWeight: 'bold' }}>
+            {ban ? 'true' : 'false'}
           </span>
         ),
       },
     ];
-    return (
-      <Table loading={loading} columns={columns} dataSource={clientes} />
-    );
+    return <Table loading={loading} columns={columns} dataSource={clientes} />;
   }
   return (
-    <div className="app">
-      <Space direction="vertical">
+    <div className='app'>
+      <Space direction='vertical'>
         <Typography.Title level={4}>Clientes</Typography.Title>
         <Input.Search
-          placeholder="Buscar por email"
+          placeholder='Buscar por email'
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />

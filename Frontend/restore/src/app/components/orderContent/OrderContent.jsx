@@ -23,12 +23,11 @@ export default function OrderContent({ success }) {
           const items = await Promise.all(
             cart.map((item) =>
               axios.put(
-                `https://re-store.onrender.com/categories/technology/${item.productId}`,
+                `https://restore-api.onrender.com/categories/technology/${item.productId}`,
                 { Disabled: true }
               )
             )
           );
-          console.log(items, '...........uno......');
         } catch (error) {
           console.log(error);
         }
@@ -36,9 +35,8 @@ export default function OrderContent({ success }) {
       const fetchMail = async () => {
         try {
           const { data } = await axios(
-            `https://re-store.onrender.com/users/${userId}`
+            `https://restore-api.onrender.com/users/${userId}`
           );
-          console.log(data, '..............dos.................');
           setEmail(data.email);
         } catch (error) {
           console.log(error);
@@ -54,7 +52,7 @@ export default function OrderContent({ success }) {
     const fetch = async () => {
       try {
         const { data } = await axios.post(
-          `https://re-store.onrender.com/payments/send-email`,
+          `https://restore-api.onrender.com/payments/send-email`,
           { direccion, mail: email, envio }
         );
 

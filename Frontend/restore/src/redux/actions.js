@@ -53,7 +53,7 @@ export const addFromDatabase = (localItems, userId, userId2) => {
   return async (dispatch) => {
     try {
       const { data: dbItems } = await axios.get(
-        `https://re-store.onrender.com/carrito`,
+        `https://restore-api.onrender.com/carrito`,
         {
           params: { userId: userId || userId2 },
         }
@@ -76,7 +76,7 @@ export const addFromDatabase = (localItems, userId, userId2) => {
       mergedCart.forEach(async (cartItem) => {
         try {
           const { data } = await axios.post(
-            `https://re-store.onrender.com/carrito`,
+            `https://restore-api.onrender.com/carrito`,
             {
               productId: cartItem.productId,
               userId: userId || userId2,
@@ -100,7 +100,7 @@ const loggedAddToCart = (newProduct, userId, userId2) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        `https://re-store.onrender.com/carrito`,
+        `https://restore-api.onrender.com/carrito`,
         {
           productId: newProduct.productId,
           userId: userId || userId2,
@@ -120,7 +120,7 @@ const loggedRemoveFromCart = (productId, userId, userId2) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(
-        'https://re-store.onrender.com/carrito',
+        'https://restore-api.onrender.com/carrito',
         {
           data: {
             productId: productId,
@@ -138,7 +138,7 @@ export const cleanCart = (userId, userId2) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.delete(
-        'https://re-store.onrender.com/carrito/checkout',
+        'https://restore-api.onrender.com/carrito/checkout',
         // 'http://localhost:3001/carrito/checkout',
         {
           data: {

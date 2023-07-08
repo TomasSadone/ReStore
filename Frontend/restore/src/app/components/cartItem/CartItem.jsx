@@ -14,7 +14,7 @@ export default function CartItem({ productId, item, userId, userId2 }) {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `https://re-store.onrender.com/categories/technology/Detail/${productId}`
+        `https://restore-api.onrender.com/categories/technology/Detail/${productId}`
       );
       setProduct(response.data.result[0]);
 

@@ -1,16 +1,16 @@
-"use client";
-import { useEffect, useState } from "react";
-import React from "react";
-import "./dash.css";
-import { Space, Typography, Card, Statistic, Table } from "antd";
-import { useRouter } from "next/navigation";
+'use client';
+import { useEffect, useState } from 'react';
+import React from 'react';
+import './dash.css';
+import { Space, Typography, Card, Statistic, Table } from 'antd';
+import { useRouter } from 'next/navigation';
 import {
   ShoppingCartOutlined,
   DollarOutlined,
   UserOutlined,
   ShopOutlined,
-} from "@ant-design/icons";
-import axios from "axios";
+} from '@ant-design/icons';
+import axios from 'axios';
 
 function Dashboard() {
   const router = useRouter();
@@ -34,7 +34,7 @@ function Dashboard() {
 
   const getOrdenesRecientes = async () => {
     const { data } = await axios.get(
-      "https://re-store.onrender.com/users/envios/all"
+      'https://restore-api.onrender.com/users/envios/all'
     );
 
     return data.users;
@@ -69,15 +69,15 @@ function Dashboard() {
   function RecentOrders() {
     const columns = [
       {
-        title: "Email",
-        dataIndex: "email",
+        title: 'Email',
+        dataIndex: 'email',
         render: (_, record) => (
-          <span style={{ color: "green" }}>{record.email}</span>
+          <span style={{ color: 'green' }}>{record.email}</span>
         ),
       },
       {
-        title: "Ciudad",
-        dataIndex: "ciudad",
+        title: 'Ciudad',
+        dataIndex: 'ciudad',
         render: (_, record) => {
           const direccion = record?.ubicacion?.[0]?.direccion;
           const codigoPostal = record?.ubicacion?.[0]?.codigoPostal;
@@ -86,10 +86,10 @@ function Dashboard() {
         },
       },
       {
-        title: "Pagado",
-        dataIndex: "pagado",
+        title: 'Pagado',
+        dataIndex: 'pagado',
         render: (_, record) => (
-          <span style={{ color: "#00CC00" }}>{`$${record.pagado} USD`}</span>
+          <span style={{ color: '#00CC00' }}>{`$${record.pagado} USD`}</span>
         ),
       },
     ];
@@ -115,7 +115,9 @@ function Dashboard() {
 
   useEffect(() => {
     const getAllClientes = async () => {
-      const { data } = await axios.get("https://re-store.onrender.com/users");
+      const { data } = await axios.get(
+        'https://restore-api.onrender.com/users'
+      );
       setDataClientes(data);
     };
 
@@ -132,7 +134,7 @@ function Dashboard() {
   useEffect(() => {
     const getAllProductos = async () => {
       const { data } = await axios.get(
-        "https://re-store.onrender.com/categories/technology/allProducts"
+        'https://restore-api.onrender.com/categories/technology/allProducts'
       );
       setDataProductos(data.result);
     };
@@ -150,9 +152,9 @@ function Dashboard() {
   useEffect(() => {
     const getTotalProfit = async () => {
       const { data } = await axios.get(
-        "https://re-store.onrender.com/payments/earnings"
+        'https://restore-api.onrender.com/payments/earnings'
       );
-      const earningsFormatted = data.earnings.toLocaleString("es-ES", {
+      const earningsFormatted = data.earnings.toLocaleString('es-ES', {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       });
@@ -163,67 +165,67 @@ function Dashboard() {
   }, [totalProfit]);
 
   return (
-    <Space size={20} direction="vertical">
+    <Space size={20} direction='vertical'>
       <Typography.Title level={4}>Dashboard</Typography.Title>
-      <Space direction="horizontal">
+      <Space direction='horizontal'>
         <DashboardCard
           icon={
             <ShoppingCartOutlined
               style={{
-                color: "green",
-                backgroundColor: "rgba(0,255,0,0.15",
+                color: 'green',
+                backgroundColor: 'rgba(0,255,0,0.15',
                 borderRadius: 20,
                 fontSize: 24,
                 padding: 8,
               }}
             />
           }
-          titulo={"Ordenes"}
+          titulo={'Ordenes'}
           numero={allordenes.length}
         />
         <DashboardCard
           icon={
             <ShopOutlined
               style={{
-                color: "purple",
-                backgroundColor: "rgba(0,255,255,0.15",
+                color: 'purple',
+                backgroundColor: 'rgba(0,255,255,0.15',
                 borderRadius: 20,
                 fontSize: 24,
                 padding: 8,
               }}
             />
           }
-          titulo={"Inventario"}
+          titulo={'Inventario'}
           numero={productosTot}
         />
         <DashboardCard
           icon={
             <UserOutlined
               style={{
-                color: "blue",
-                backgroundColor: "rgba(0,0,255,0.15",
+                color: 'blue',
+                backgroundColor: 'rgba(0,0,255,0.15',
                 borderRadius: 20,
                 fontSize: 24,
                 padding: 8,
               }}
             />
           }
-          titulo={"Clientes"}
+          titulo={'Clientes'}
           numero={clientesTot}
         />
         <DashboardCard
           icon={
             <DollarOutlined
               style={{
-                color: "red",
-                backgroundColor: "rgba(255,0,0,0.15",
+                color: 'red',
+                backgroundColor: 'rgba(255,0,0,0.15',
                 borderRadius: 20,
                 fontSize: 24,
                 padding: 8,
               }}
             />
           }
-          titulo={"Gananacias Totales"}
+          titulo={'Gananacias Totales'}
           numero={totalProfit}
         />
       </Space>

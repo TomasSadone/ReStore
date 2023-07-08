@@ -30,7 +30,7 @@ function Ubicaciones() {
 
   const handleSearch = async (idUser) => {
     const response = await axios.get(
-      `https://re-store.onrender.com/users/${idUser}`
+      `https://restore-api.onrender.com/users/${idUser}`
     );
     const { data } = response;
     setData(data.ubicacion);
@@ -53,9 +53,12 @@ function Ubicaciones() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.put('https://re-store.onrender.com/users/ubication/delete', {
-        id: id,
-      });
+      await axios.put(
+        'https://restore-api.onrender.com/users/ubication/delete',
+        {
+          id: id,
+        }
+      );
 
       // Actualizar el estado local eliminando la ubicación eliminada
       setData((prevData) => prevData.filter((item) => item._id !== id));
@@ -81,12 +84,15 @@ function Ubicaciones() {
     if (flag) {
       setFlag(false);
     } else {
-      await axios.put('https://re-store.onrender.com/users/ubication/modify', {
-        id: editingId,
-        ciudad: user.ciudad,
-        direccion: user.direccion,
-        codigoPostal: user.codigoPostal,
-      });
+      await axios.put(
+        'https://restore-api.onrender.com/users/ubication/modify',
+        {
+          id: editingId,
+          ciudad: user.ciudad,
+          direccion: user.direccion,
+          codigoPostal: user.codigoPostal,
+        }
+      );
 
       setFlag(true);
       setForm(false);

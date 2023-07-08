@@ -44,7 +44,7 @@ export default function CheckoutContent({ session, cookieValue }) {
     try {
       const userId = session?.user.id || cookieValue;
       const { data } = await axios.post(
-        'https://re-store.onrender.com/payments/create-checkout-session',
+        'https://restore-api.onrender.com/payments/create-checkout-session',
         {
           userId,
           cartItems: products,

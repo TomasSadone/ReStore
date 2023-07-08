@@ -36,11 +36,11 @@ function Signup() {
           const decodedDireccion = decodeURIComponent(direccion);
           const decodedCodigoPostal = decodeURIComponent(codigoPostal);
           const { data } = await axios.get(
-            `https://re-store.onrender.com/users/verify_emaill/${decodedToken}`
+            `https://restore-api.onrender.com/users/verify_emaill/${decodedToken}`
           );
 
           if (data.token === decodedToken) {
-            await axios.post('https://re-store.onrender.com/users', {
+            await axios.post('https://restore-api.onrender.com/users', {
               nombre: decodedUserName,
               apellido: decodedApellido,
               contraseña: decodedPassword,
@@ -68,7 +68,7 @@ function Signup() {
     }
   }, []);
 
-  const URL = 'https://re-store.onrender.com/users';
+  const URL = 'https://restore-api.onrender.com/users';
 
   const [message, setMessage] = useState('');
   const [flag, setFlag] = useState(false);
@@ -118,7 +118,7 @@ function Signup() {
     try {
       if (user.email) {
         const { data } = await axios.get(
-          `https://re-store.onrender.com/users/${user.email}/email`
+          `https://restore-api.onrender.com/users/${user.email}/email`
         );
         if (!data.error) {
           if (data.email === user.email) {
@@ -174,18 +174,21 @@ function Signup() {
         setFlag(false); // Cambia flag a false si ya se creó un usuario anteriormente
       } else {
         const uuid = uuidv4();
-        await axios.post('https://re-store.onrender.com/users/verify_email', {
-          email: user.email,
-          uuid,
-          userName: user.userName,
-          apellido: user.userLastName,
-          password: user.password,
-          genero: user.genero,
-          nacimiento: user.fechaNacimiento,
-          ubiCiudad: user.ubiCiudad,
-          ubiDireccion: user.ubiDireccion,
-          ubiCodigoPostal: user.ubiCodigoPostal,
-        });
+        await axios.post(
+          'https://restore-api.onrender.com/users/verify_email',
+          {
+            email: user.email,
+            uuid,
+            userName: user.userName,
+            apellido: user.userLastName,
+            password: user.password,
+            genero: user.genero,
+            nacimiento: user.fechaNacimiento,
+            ubiCiudad: user.ubiCiudad,
+            ubiDireccion: user.ubiDireccion,
+            ubiCodigoPostal: user.ubiCodigoPostal,
+          }
+        );
 
         setFlag(true);
       }

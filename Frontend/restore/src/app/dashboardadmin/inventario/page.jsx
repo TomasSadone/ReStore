@@ -32,7 +32,7 @@ function Inventario() {
   useEffect(() => {
     const fetchProducts = async () => {
       const products = await fetch(
-        'https://re-store.onrender.com/categories/technology/allProducts'
+        'https://restore-api.onrender.com/categories/technology/allProducts'
       );
       const response = await products.json();
       setProducts(response.result);
@@ -47,7 +47,7 @@ function Inventario() {
     );
     axios
       .put(
-        `https://re-store.onrender.com/categories/technology/${record._id}`,
+        `https://restore-api.onrender.com/categories/technology/${record._id}`,
         {
           Disabled: disabled,
         }
@@ -74,7 +74,7 @@ function Inventario() {
     });
     axios
       .put(
-        `https://re-store.onrender.com/categories/technology/${editingKey}`,
+        `https://restore-api.onrender.com/categories/technology/${editingKey}`,
         {
           [editingField]: editedValue,
         }
@@ -241,7 +241,7 @@ function Inventario() {
                     form.append('image', file);
                     axios
                       .put(
-                        `https://re-store.onrender.com/categories/technology/${record._id}`,
+                        `https://restore-api.onrender.com/categories/technology/${record._id}`,
                         form
                       )
                       .then((res) => console.log('foto enviada con exito'))
