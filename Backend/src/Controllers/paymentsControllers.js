@@ -1,6 +1,7 @@
 const Stripe = require('stripe');
 const stripe = new Stripe(
-  'sk_test_51NNLpXJ1lb1YFkHpt7cNexUW59vJoBx40Sta98qZ2Bqa8bRzrTaU1gjsNAWMrpYseNMP4u3KRJZxMbjBXT9LtuJC00e9OgY4Hm'
+  // 'sk_test_51NNLpXJ1lb1YFkHpt7cNexUW59vJoBx40Sta98qZ2Bqa8bRzrTaU1gjsNAWMrpYseNMP4u3KRJZxMbjBXT9LtuJC00e9OgY4Hm'
+  'sk_test_51NOASbBnGybQvrqHVNKyR36oLmruSchXbapnUE2Mon4Tpoa2IYsMjUwOlreYofkS8vgIxq9HIikxtYgkS63BimCb00SyIQgr3N'
 );
 const DOMAIN = 'https://re-store-ts.vercel.app/cart/checkout/order';
 
