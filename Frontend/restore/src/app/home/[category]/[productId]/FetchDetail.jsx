@@ -291,13 +291,13 @@ export function DetailId({ param }) {
                 {post.result[0].Description}
               </p>
             </div>
-            <div className='grid gap-2'>
+            {/* <div className='grid gap-2'>
               <h3 className='text-xl font-semibold text-blue-900'>
                 También te puede interesar:
               </h3>
-              <DetailCarousel data={filteredData}></DetailCarousel>
-              {/* <HomeContainer data={ofertas}></HomeContainer> */}
-            </div>
+             <DetailCarousel data={filteredData}></DetailCarousel> 
+              <HomeContainer data={ofertas}></HomeContainer>
+            </div> */}
           </div>
         </div>
       )}
