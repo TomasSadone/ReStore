@@ -20,7 +20,7 @@ export default function MyForm() {
     }
     const fetchData = async () => {
       const response = await axios.get(
-        'https://restore-api.onrender.com/categories/technology/subcategorias'
+        'https://restore-api-7xqt.onrender.com/categories/technology/subcategorias'
       );
       setCategoria(response.data);
     };
@@ -117,7 +117,7 @@ export default function MyForm() {
 
     axios
       .post(
-        'https://restore-api.onrender.com/categories/technology/posteo',
+        'https://restore-api-7xqt.onrender.com/categories/technology/posteo',
         formData
       )
       .then(() => {

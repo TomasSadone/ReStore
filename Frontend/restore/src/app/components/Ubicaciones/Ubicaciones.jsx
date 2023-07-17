@@ -30,7 +30,7 @@ function Ubicaciones() {
 
   const handleSearch = async (idUser) => {
     const response = await axios.get(
-      `https://restore-api.onrender.com/users/${idUser}`
+      `https://restore-api-7xqt.onrender.com/users/${idUser}`
     );
     const { data } = response;
     setData(data.ubicacion);
@@ -54,7 +54,7 @@ function Ubicaciones() {
   const handleDelete = async (id) => {
     try {
       await axios.put(
-        'https://restore-api.onrender.com/users/ubication/delete',
+        'https://restore-api-7xqt.onrender.com/users/ubication/delete',
         {
           id: id,
         }
@@ -85,7 +85,7 @@ function Ubicaciones() {
       setFlag(false);
     } else {
       await axios.put(
-        'https://restore-api.onrender.com/users/ubication/modify',
+        'https://restore-api-7xqt.onrender.com/users/ubication/modify',
         {
           id: editingId,
           ciudad: user.ciudad,

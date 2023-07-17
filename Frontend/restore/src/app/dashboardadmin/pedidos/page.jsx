@@ -30,7 +30,7 @@ function Pedidos() {
 
   const getPedidos = async () => {
     const { data } = await axios.get(
-      'https://restore-api.onrender.com/users/envios/all'
+      'https://restore-api-7xqt.onrender.com/users/envios/all'
     );
     return data.users;
   };

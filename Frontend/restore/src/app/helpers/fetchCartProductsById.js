@@ -6,7 +6,7 @@ const fetchCartProductsById = async (cart, setProducts) => {
   Promise.all(
     cart.map((item) =>
       axios.get(
-        `https://restore-api.onrender.com/categories/technology/Detail/${item.productId}`
+        `https://restore-api-7xqt.onrender.com/categories/technology/Detail/${item.productId}`
       )
     )
   )

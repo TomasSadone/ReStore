@@ -1,6 +1,6 @@
 export const fetchOfers = async () => {
   const response = await fetch(
-    'https://restore-api.onrender.com/categories/technology/Ofertas',
+    'https://restore-api-7xqt.onrender.com/categories/technology/Ofertas',
     { cache: 'no-store' }
   );
   return await response.json();
@@ -8,7 +8,7 @@ export const fetchOfers = async () => {
 
 export const fetchCategory = async (category) => {
   const response = await fetch(
-    `https://restore-api.onrender.com/categories/technology/categoria/${category}`,
+    `https://restore-api-7xqt.onrender.com/categories/technology/categoria/${category}`,
     { cache: 'no-store' }
   );
   return await response.json();
@@ -16,14 +16,14 @@ export const fetchCategory = async (category) => {
 
 export const fetchDetail = (productId) => {
   return fetch(
-    `https://restore-api.onrender.com/categories/technology/Detail/${productId}`
+    `https://restore-api-7xqt.onrender.com/categories/technology/Detail/${productId}`
   ).then((res) => res.json());
 };
 
 export const fetchAllProducts = async () => {
   try {
     const response = await fetch(
-      `https://restore-api.onrender.com/categories/technology/allProducts`
+      `https://restore-api-7xqt.onrender.com/categories/technology/allProducts`
     );
     if (!response.ok) {
       throw new Error('Error al obtener los productos');
@@ -38,13 +38,13 @@ export const fetchAllProducts = async () => {
 
 export const fetchSearch = (search) => {
   return fetch(
-    `https://restore-api.onrender.com/categories/technology/searchname?name=${search}`,
+    `https://restore-api-7xqt.onrender.com/categories/technology/searchname?name=${search}`,
     { cache: 'no-store' }
   ).then((res) => res.json());
 };
 
 export const fetchUsuario = (id) => {
-  return fetch(`https://restore-api.onrender.com/users/${id}/email`).then(
+  return fetch(`https://restore-api-7xqt.onrender.com/users/${id}/email`).then(
     (res) => res.json()
   );
 };

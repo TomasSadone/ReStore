@@ -23,7 +23,7 @@ const Rating = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `https://restore-api.onrender.com/categories/technology/Detail/${product}`
+        `https://restore-api-7xqt.onrender.com/categories/technology/Detail/${product}`
       );
       setDetail(response.data.result[0]);
     };
@@ -32,7 +32,7 @@ const Rating = () => {
 
   const submitRating = async () => {
     await axios.put(
-      `https://restore-api.onrender.com/categories/technology/rating/${product}/${user}`,
+      `https://restore-api-7xqt.onrender.com/categories/technology/rating/${product}/${user}`,
       {
         rate: rating,
         comment: comment,

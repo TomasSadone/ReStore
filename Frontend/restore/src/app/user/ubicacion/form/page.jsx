@@ -76,7 +76,7 @@ function UbiForm() {
         setFlag(false); // Cambia flag a false si ya se creó un usuario anteriormente
       } else {
         await axios.put(
-          'https://restore-api.onrender.com/users/ubication/add',
+          'https://restore-api-7xqt.onrender.com/users/ubication/add',
           {
             id: idUser,
             ciudad: user.ciudad,

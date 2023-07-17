@@ -15,7 +15,7 @@ const handler = NextAuth({
   callbacks: {
     async session({ session }) {
       const response = await fetch(
-        `https://restore-api.onrender.com/users/${session.user.email}/email`
+        `https://restore-api-7xqt.onrender.com/users/${session.user.email}/email`
       );
       const sessionUser = await response.json();
       session.user.id = sessionUser._id;
@@ -23,7 +23,7 @@ const handler = NextAuth({
     },
     async signIn({ profile }) {
       const response = await fetch(
-        `https://restore-api.onrender.com/users/${profile.email}/email`
+        `https://restore-api-7xqt.onrender.com/users/${profile.email}/email`
       );
       const user = await response.json();
       if (user.error) {
@@ -32,7 +32,7 @@ const handler = NextAuth({
           nombre: profile.name,
         };
 
-        await fetch('https://restore-api.onrender.com/users/', {
+        await fetch('https://restore-api-7xqt.onrender.com/users/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

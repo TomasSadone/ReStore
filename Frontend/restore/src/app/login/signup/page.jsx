@@ -36,11 +36,11 @@ function Signup() {
           const decodedDireccion = decodeURIComponent(direccion);
           const decodedCodigoPostal = decodeURIComponent(codigoPostal);
           const { data } = await axios.get(
-            `https://restore-api.onrender.com/users/verify_emaill/${decodedToken}`
+            `https://restore-api-7xqt.onrender.com/users/verify_emaill/${decodedToken}`
           );
 
           if (data.token === decodedToken) {
-            await axios.post('https://restore-api.onrender.com/users', {
+            await axios.post('https://restore-api-7xqt.onrender.com/users', {
               nombre: decodedUserName,
               apellido: decodedApellido,
               contraseña: decodedPassword,
@@ -68,7 +68,7 @@ function Signup() {
     }
   }, []);
 
-  const URL = 'https://restore-api.onrender.com/users';
+  const URL = 'https://restore-api-7xqt.onrender.com/users';
 
   const [message, setMessage] = useState('');
   const [flag, setFlag] = useState(false);
@@ -118,7 +118,7 @@ function Signup() {
     try {
       if (user.email) {
         const { data } = await axios.get(
-          `https://restore-api.onrender.com/users/${user.email}/email`
+          `https://restore-api-7xqt.onrender.com/users/${user.email}/email`
         );
         if (!data.error) {
           if (data.email === user.email) {
@@ -175,7 +175,7 @@ function Signup() {
       } else {
         const uuid = uuidv4();
         await axios.post(
-          'https://restore-api.onrender.com/users/verify_email',
+          'https://restore-api-7xqt.onrender.com/users/verify_email',
           {
             email: user.email,
             uuid,

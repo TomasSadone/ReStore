@@ -66,7 +66,7 @@ function usuario({ searchParams }) {
     if (file) formData.append('profileImage', file);
     const id = session ? session.user.id : cookieValue;
     axios
-      .put(`https://restore-api.onrender.com/users/${id}`, formData)
+      .put(`https://restore-api-7xqt.onrender.com/users/${id}`, formData)
       .then(() => {
         Swal.fire({
           icon: 'success',
@@ -87,7 +87,7 @@ function usuario({ searchParams }) {
   // useEffect(() => {
   //   const fetchDetail = async (id) => {
   //     const response = await fetch(
-  //       `https://restore-api.onrender.com/categories/technology/Detail/${id}`
+  //       `https://restore-api-7xqt.onrender.com/categories/technology/Detail/${id}`
   //     );
   //     const product = await response.json();
   //     setDetalle(product);
@@ -104,7 +104,7 @@ function usuario({ searchParams }) {
   useEffect(() => {
     const fetchUsuario = async (id) => {
       const response = await fetch(
-        `https://restore-api.onrender.com/users/${id}`
+        `https://restore-api-7xqt.onrender.com/users/${id}`
       );
       const user = await response.json();
 
@@ -122,7 +122,7 @@ function usuario({ searchParams }) {
           Promise.all(
             cart.map((item) =>
               axios.get(
-                `https://restore-api.onrender.com/categories/technology/Detail/${item.id}`
+                `https://restore-api-7xqt.onrender.com/categories/technology/Detail/${item.id}`
               )
             )
           )

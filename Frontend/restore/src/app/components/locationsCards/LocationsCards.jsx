@@ -26,7 +26,7 @@ export default function LocationsCards({
     const fetch = async () => {
       try {
         const { data } = await axios(
-          `https://restore-api.onrender.com/users/${id}`
+          `https://restore-api-7xqt.onrender.com/users/${id}`
         );
         setLocations(data.ubicacion);
       } catch (error) {

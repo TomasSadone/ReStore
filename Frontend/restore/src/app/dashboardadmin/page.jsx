@@ -34,7 +34,7 @@ function Dashboard() {
 
   const getOrdenesRecientes = async () => {
     const { data } = await axios.get(
-      'https://restore-api.onrender.com/users/envios/all'
+      'https://restore-api-7xqt.onrender.com/users/envios/all'
     );
 
     return data.users;
@@ -116,7 +116,7 @@ function Dashboard() {
   useEffect(() => {
     const getAllClientes = async () => {
       const { data } = await axios.get(
-        'https://restore-api.onrender.com/users'
+        'https://restore-api-7xqt.onrender.com/users'
       );
       setDataClientes(data);
     };
@@ -134,7 +134,7 @@ function Dashboard() {
   useEffect(() => {
     const getAllProductos = async () => {
       const { data } = await axios.get(
-        'https://restore-api.onrender.com/categories/technology/allProducts'
+        'https://restore-api-7xqt.onrender.com/categories/technology/allProducts'
       );
       setDataProductos(data.result);
     };
@@ -152,7 +152,7 @@ function Dashboard() {
   useEffect(() => {
     const getTotalProfit = async () => {
       const { data } = await axios.get(
-        'https://restore-api.onrender.com/payments/earnings'
+        'https://restore-api-7xqt.onrender.com/payments/earnings'
       );
       const earningsFormatted = data.earnings.toLocaleString('es-ES', {
         minimumFractionDigits: 2,

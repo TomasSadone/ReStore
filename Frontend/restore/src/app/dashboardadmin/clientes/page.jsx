@@ -30,7 +30,9 @@ function Clientes() {
   const [flag, setFlag] = useState(false);
   const [searchText, setSearchText] = useState('');
   const getClientes = async () => {
-    const { data } = await axios.get('https://restore-api.onrender.com/users');
+    const { data } = await axios.get(
+      'https://restore-api-7xqt.onrender.com/users'
+    );
     return data;
   };
 
@@ -50,7 +52,7 @@ function Clientes() {
     try {
       setLoading(true);
       const response = await axios.put(
-        'https://restore-api.onrender.com/users/ban/user',
+        'https://restore-api-7xqt.onrender.com/users/ban/user',
         {
           userId: clienteId,
         }

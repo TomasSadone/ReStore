@@ -6,7 +6,7 @@ import './change.css';
 import Link from 'next/link';
 
 function ChangePassword() {
-  const URL = 'https://restore-api.onrender.com/users';
+  const URL = 'https://restore-api-7xqt.onrender.com/users';
 
   const [flag, setFlag] = useState(false);
   const [user, setUser] = useState({
@@ -65,7 +65,7 @@ function ChangePassword() {
         setFlag(false); // Cambia flag a false si ya se creó un usuario anteriormente
       } else {
         axios
-          .put('https://restore-api.onrender.com/users/changePassword', {
+          .put('https://restore-api-7xqt.onrender.com/users/changePassword', {
             email: user.email,
             newPassword: user.password,
           })

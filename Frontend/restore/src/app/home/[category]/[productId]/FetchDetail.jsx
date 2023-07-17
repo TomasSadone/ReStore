@@ -54,7 +54,7 @@ export function DetailId({ param }) {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        `https://restore-api.onrender.com/categories/technology/Detail/${param}`
+        `https://restore-api-7xqt.onrender.com/categories/technology/Detail/${param}`
       );
       setPost(response.data);
     };
@@ -66,7 +66,7 @@ export function DetailId({ param }) {
       if (post.result.length) {
         const subcategory = Object.keys(post.result[0].subcategoria)[0];
         const response = await axios.get(
-          `https://restore-api.onrender.com/categories/technology/categoria/${subcategory}`
+          `https://restore-api-7xqt.onrender.com/categories/technology/categoria/${subcategory}`
         );
         setOfertas(response.data);
       }

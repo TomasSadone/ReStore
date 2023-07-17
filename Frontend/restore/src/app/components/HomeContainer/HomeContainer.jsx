@@ -34,7 +34,7 @@ function HomeContainer({ data }) {
   const [reviews, setReviews] = useState([]);
   const fetchEmail = async () => {
     const { data } = await axios.get(
-      `https://restore-api.onrender.com/users/${email}/email`
+      `https://restore-api-7xqt.onrender.com/users/${email}/email`
     );
     if (data.ban === true) {
       setBan(true);
@@ -44,7 +44,7 @@ function HomeContainer({ data }) {
   useEffect(() => {
     const fetchReviews = async () => {
       const { data } = await axios.get(
-        'https://restore-api.onrender.com/categories/technology/allProducts?fav=true'
+        'https://restore-api-7xqt.onrender.com/categories/technology/allProducts?fav=true'
       );
       setReviews(data.result);
     };
