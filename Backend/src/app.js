@@ -29,6 +29,7 @@ app.get('/', (req, res) => {
 });
 
 const keepAlive = () => {
+  console.log('alive');
   const async = async () => {
     const abc = await axios.get(
       'https://restore-api-7xqt.onrender.com/keep-alive'
@@ -38,8 +39,8 @@ const keepAlive = () => {
   async();
   setTimeout(() => {
     keepAlive();
-  }, 85000);
+  }, 850000);
 };
 
-// keepAlive();
+keepAlive();
 module.exports = app;
