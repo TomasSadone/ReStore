@@ -139,7 +139,7 @@ function HomeContainer({ data }) {
             );
           })}
       </Carousel>
-      <h5 className='text-1xl text-center mt-20 font-medium text-blue-900'>
+      {/* <h5 className='text-1xl text-center mt-20 font-medium text-blue-900'>
         Reviews de nuestros clientes
       </h5>
       <div className='mt-5 flex justify-center m-2'>
@@ -224,7 +224,7 @@ function HomeContainer({ data }) {
               })
             : null}
         </AntCarousel>
-      </div>
+      </div> */}
     </>
   );
 }
